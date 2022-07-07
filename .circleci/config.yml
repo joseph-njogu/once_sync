@@ -10,22 +10,12 @@ jobs:
       - node/install-packages:
           pkg-manager: npm
       - run:
-          command: npm test
-          name: Run tests
-      - run:
-          command: npm start
-          name: Build app
+          name: Run tests and Builds
+          command: |
+            npm test
+            npm start
+          
       - persist_to_workspace:
           root: ~/project
           paths:
-#             - .
-# workflows:
-#   build_test_deploy:
-#     jobs:
-#       - build_and_test
-#       - deploy:
-#           requires:
-#             - build_and_test # only deploy if the build_and_test job has completed
-#           filters:
-#             branches:
-#               only: main # only deploy when on main/master branch traditionally.
+            - .
