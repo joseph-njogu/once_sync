@@ -18,3 +18,20 @@ jobs:
           root: ~/project
           paths:
             - .
+  deploy:
+    executor: node/default
+    environment:
+      - ANSIBLE_HOST_KEY_CHECKING: False
+    steps:
+      - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - ""
+      - run:
+          name: Make remote server a known host
+          command: ssh-keyscan oncesync.duckdns.org >> ~/.ssh/known_hosts
+      - run:
+          name: Execute Ansible
+          command: |
+            pip install ansible
+            ansible-playbook -i hosts playbook.yml
