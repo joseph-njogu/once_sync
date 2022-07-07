@@ -3,8 +3,8 @@ orbs:
   node: circleci/node@5.0.2
 
 jobs:
-  build_and_test: 
-    executor: node/default # use the default executor defined within the orb
+  build: 
+    executor: node/default
     steps:
       - checkout
       - node/install-packages:
