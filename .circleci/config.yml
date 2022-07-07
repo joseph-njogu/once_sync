@@ -13,7 +13,6 @@ jobs:
           name: Run tests and Builds
           command: |
             npm test
-            npm start
           
       - persist_to_workspace:
           root: ~/project
