@@ -1,0 +1,27 @@
+---
+  - hosts: all
+    become: yes
+    any_errors_fatal: yes
+    gather_facts: yes
+
+    tasks:
+      - name: Update and Upgrade the linux server
+        shell: apt-get update && apt-get upgrade
+      - name: Create file
+        copy:
+          content: Create \n
+          dest: /tmptest.txt
+      - name: Install dependencies
+        apt: name={{ item }} state=installed
+        with_items:
+          - nodejs
+          - npm
+      - name: Install and ensure Nginx is installed and latest installed
+        apt: name=ngix state=latest
+      
+      #Getting the project now
+      - name: Create A REMOTE  directory to store the project files
+        file:
+          state: directory
+          path: app
+      - name: Pull project from github repository
