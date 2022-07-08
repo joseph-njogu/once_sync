@@ -15,3 +15,5 @@ DevOps Test
 
 All the pipelines are as indicated in the 
 .circleci folder and an inventory hosts and playbook.yml
+
+<img src="success.png" alt="Success" /> 
