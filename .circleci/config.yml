@@ -35,3 +35,17 @@ jobs:
           command: |
             pip install ansible
             ansible-playbook -i hosts playbook.yml
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build:
+        filters:
+          branches:
+            only: main
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: main
