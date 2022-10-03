@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>createblog</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="submit()">
+    <ion-item>
+      <ion-label>Title</ion-label>
+      <ion-input type="text" [(ngModel)]="title" name="title"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Content</ion-label>
+      <ion-textarea [(ngModel)]="content" name="content"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label>Image Url</ion-label>
+      <ion-textarea [(ngModel)]="image" name="image"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label>User</ion-label>
+      <ion-textarea [(ngModel)]="user" name="user"></ion-textarea>
+    </ion-item>
+    <ion-button type="submit" color="success">Add a Blog</ion-button>
+    <ion-button (click)="home()" color="success">Go Home</ion-button>
+
+  </form>
+
+</ion-content>

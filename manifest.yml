@@ -1,0 +1,15 @@
+modules:
+  jira:projectPage:
+    - key: atlass-mini-app-hello-world-project-page
+      resource: main
+      resolver:
+        function: resolver
+      title: atlass-mini-app
+  function:
+    - key: resolver
+      handler: index.handler
+resources:
+  - key: main
+    path: static/hello-world/build
+app:
+  id: ari:cloud:ecosystem::app/121e1bcf-8191-4af7-8731-28857bb0caba
